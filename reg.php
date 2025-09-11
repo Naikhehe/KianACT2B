@@ -1,55 +1,65 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registration Form</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>PHP Bootstrap Activity</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
 <div class="container mt-5">
-    <div class="card shadow-lg">
-        <div class="card-header bg-primary text-white">
-            <h4 class="mb-0">Student Registration</h4>
-        </div>
-        <div class="card-body">
-            <form action="post.php" method="POST">
-                <!-- Full Name -->
-                <div class="mb-3">
-                    <label for="fullname" class="form-label">Employee Name</label>
-                    <input type="text" name="fullname" id="fullname" class="form-control" placeholder="Enter your full name" required>
-                </div>
+    <div class="card shadow p-4">
+        <h3 class="mb-3">Student Course Registration</h3>
+        <form action="post.php" method="POST">
 
-                <!-- Email -->
-                <div class="mb-3">
-                    <label for="firstnumber" class="form-label">Total Days of Work</label>
-                    <input type="number" name="num1" id="firstnumber" class="form-control" placeholder="Enter Number" required>
-                </div>
+            <!-- Text Input -->
+            <div class="mb-3">
+                <label class="form-label">Full Name:</label>
+                <input type="text" name="fullname" class="form-control" required>
+            </div>
 
-                <div class="mb-3">
-                    <label for="secondnumber" class="form-label">Daily Rate</label>
-                    <input type="number" name="num2" id="secondnumber" class="form-control" placeholder="Enter Number" required>
-                </div>
+            <!-- Number Input Age -->
+            <div class="mb-3">
+                <label class="form-label">Age: <i>(5% Discount for age 26 to 30 only)</i></label>
+                <input type="number" name="age" class="form-control" required>
+            </div>
 
-                <div class="mb-3">
-                    <label for="thirdnumber" class="form-label">Cash Advance</label>
-                    <input type="number" name="num3" id="thirdnumber" class="form-control" placeholder="Enter Number" required>
-                </div>
+            <!-- Average Grade Input -->
+            <div class="mb-3">
+                <label class="form-label">Average Grade: <i>(20% Discount for grade 95 and above)</i></label>
+                <input type="number" name="grade" class="form-control" min="60" max="100" required>
+            </div>
 
+            <!-- Select Dropdown -->
+            <div class="mb-3">
+                <label class="form-label">Select Course:</label>
+                <select name="course" class="form-select" required>
+                    <option value="">-- Choose Course --</option>
+                    <option value="ACT">ACT (Associate in Computer Technology) P15,000</option>
+                    <option value="HM">HM (Hospitality Management) P20,000</option>
+                    <option value="BSOA">BSOA (Bachelor of Science in Office Administration) P18,000</option>
+                </select>
+            </div>
 
-                <!-- Submit Button -->
-                <div class="text-end">
-                    <button type="submit" class="btn btn-primary w-100">General Payslip</button>
+            <!-- Radio Buttons -->
+            <div class="mb-3">
+                <label class="form-label">Gender:</label><br>
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="gender" value="Male" class="form-check-input" required>
+                    <label class="form-check-label">Male</label>
                 </div>
-            </form>
-        </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="gender" value="Female" class="form-check-input" required>
+                    <label class="form-check-label">Female</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 </div>
-
-<!-- Bootstrap JS Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

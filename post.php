@@ -33,7 +33,7 @@
             $grade_discount = 0;
             $age_discount = 0;
 
-            if($age >= 26 && <=30)
+            if($age >= 26 && $age <= 30)
                 {
                     $age_discount = $tuition * 0.05;
                 }
@@ -43,28 +43,36 @@
                 }
 
                 $total_discount = $grade_discount + $age_discount;
-                $final_discount = $tuition - $total_discount
+                $final_tuition = $tuition - $total_discount;
         }
         else
             {
-                echo "No data selected"
+                echo "No data selected";
             }
         
 
         ?>
-        <p><strong>Full Name:</strong> kian</p>
-        <p><strong>Age:</strong> 26</p>
-        <p><strong>Average Grade:</strong> 95</p>
-        <p><strong>Course:</strong> HM</p>
-        <p><strong>Gender:</strong> Male</p>
-        <hr>
         <p><strong>Tuition Fee:</strong> ₱20,000.00</p>
         <p class='text-success'><strong>Grade Discount (20%):</strong> -₱4,000.00</p>
         <p class='text-success'><strong>Age Discount (5%):</strong> -₱1,000.00</p>
         <p class='text-primary'><strong>Total Discounts:</strong> -₱5,000.00</p>
-        <h5><strong>Final Tuition Fee:</strong> ₱15,000.00</h5>        
-        <a href="registration.php" class="btn btn-secondary mt-3">Go Back</a>
-    </div>
+
+    <?php
+    if($grade_discount > 0){
+        echo "<p class='text-success'><strong>Grade Discount (20%):</strong> -₱" .number_format($grade_discount,2)."</p>";
+    }
+    if($age_discount > 0){
+        echo "<p class='text-success'><strong>Age Discount (5%):</strong> -₱" .number_format($age_discount)."</p>";
+    }
+    if($total_discount > 0){
+        echo "<p class='text-primary'><strong>Total Discounts:</strong> -₱" .number_format($total_discount)."</p>";
+    }
+    else{
+        echo "No Discount Applied";
+    }
+    ?>
+    <h5><strong>Final Tuition Fee:<?=$final_tuition?></strong> </h5>     
+    <a href="registration.php" class="btn btn-secondary mt-3">Go Back</a>
 </div>
 
 </body>
